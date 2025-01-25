@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=4 uid="uid://b0vajwj1ekdvu"]
+[gd_scene load_steps=6 format=4 uid="uid://b0vajwj1ekdvu"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_2uyvo"]
+[ext_resource type="PackedScene" uid="uid://b483ejt55vdvt" path="res://scenes/goal.tscn" id="2_5da4q"]
+[ext_resource type="PackedScene" uid="uid://bfrpe2mekle17" path="res://scenes/spawner.tscn" id="3_hbu2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urgl5"]
 texture = ExtResource("1_2uyvo")
@@ -1311,3 +1313,9 @@ tile_set = SubResource("TileSet_12skq")
 texture_filter = 1
 tile_map_data = PackedByteArray("AAALAAgAAAADAAAAAAAKAAgAAAACAAcAAAAJAAgAAAACAAMAAAAIAAgAAAACAAcAAAAHAAgAAAACAAMAAAAGAAgAAAABAAcAAAAUAAgAAAACAAMAAAAXAAgAAAAIAAIAAAAWAAgAAAACAAMAAAAVAAgAAAACAAMAAAALAAkAAAAAAAEAAAALAAoAAAAAAAUAAAALAAsAAAAAAAUAAAALAAwAAAAAAAEAAAALAA0AAAABAAIAAAAMAA0AAAACAAcAAAANAA0AAAACAAcAAAAOAA0AAAACAAMAAAAPAA0AAAADAAIAAAAPAAwAAAAAAAEAAAAPAAsAAAAAAAEAAAAPAAoAAAAAAAUAAAAPAAkAAAAAAAEAAAAPAAgAAAAAAAUAAAAPAAcAAAAAAAEAAAAPAAYAAAAAAAUAAAAPAAUAAAAAAAUAAAAPAAQAAAAAAAEAAAAPAAMAAAABAAAAAAATAAgAAAABAAYAAAAQAAMAAAACAAMAAAARAAMAAAACAAcAAAASAAMAAAACAAMAAAATAAMAAAADAAQAAAATAAQAAAAAAAEAAAATAAUAAAAAAAUAAAATAAYAAAAAAAEAAAATAAcAAAAAAAUAAAAXAAcAAAAIAAQAAAAYAAcAAAAKAAAAAAAZAAcAAAALAAQAAAAZAAgAAAALAAYAAAAZAAkAAAALAAcAAAAYAAkAAAAJAAMAAAAXAAkAAAAIAAcAAAAYAAgAAAAKAAUAAAARAAUAAAAAAAMAAAANAAsAAAAAAAcAAAA=")
 tile_set = SubResource("TileSet_12skq")
+
+[node name="Spawner" parent="." instance=ExtResource("3_hbu2o")]
+position = Vector2(104, 136)
+
+[node name="Goal" parent="." instance=ExtResource("2_5da4q")]
+position = Vector2(392, 136)
