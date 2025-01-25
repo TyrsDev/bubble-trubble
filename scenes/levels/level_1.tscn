@@ -1334,5 +1334,5 @@ position = Vector2(376, 136)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="BubblePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_w8jn7")
