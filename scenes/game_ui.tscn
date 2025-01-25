@@ -12,13 +12,14 @@
 bg_color = Color(0.615905, 0.00298565, 0.893945, 1)
 
 [node name="GameUI" type="HBoxContainer"]
+z_index = 1
 offset_left = 14.0
 offset_top = 194.0
 offset_right = 102.0
 offset_bottom = 258.0
 theme = ExtResource("1_atmu5")
 
-[node name="BlowBubbleButton" type="TextureButton" parent="."]
+[node name="BlowBubbleButton" type="TextureButton" parent="." node_paths=PackedStringArray("lung_bar", "soap_bar")]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 4
@@ -28,6 +29,8 @@ texture_pressed = ExtResource("3_llp6i")
 texture_hover = ExtResource("4_b3i4h")
 stretch_mode = 5
 script = ExtResource("5_jm454")
+lung_bar = NodePath("../LungCapasitySprite/LungBar")
+soap_bar = NodePath("../SoapBarSprite/SoapBar")
 
 [node name="LungCapasitySprite" type="TextureRect" parent="."]
 z_index = 1
