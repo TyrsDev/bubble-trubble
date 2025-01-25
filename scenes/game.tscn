@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx7o6nx734q82"]
+[gd_scene load_steps=6 format=3 uid="uid://dx7o6nx734q82"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_mod7i"]
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="2_hqjfi"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="2_kurjy"]
 [ext_resource type="PackedScene" uid="uid://b0vajwj1ekdvu" path="res://scenes/levels/test_level.tscn" id="3_3vkvw"]
 [ext_resource type="PackedScene" uid="uid://0il82jhs2wrj" path="res://scenes/levels/level_1.tscn" id="4_kfc0v"]
-[ext_resource type="PackedScene" uid="uid://bj1qp8nd2dffi" path="res://scenes/game_ui.tscn" id="6_0lli8"]
 
 [node name="Game" type="Node2D"]
 
@@ -18,10 +17,10 @@ unique_name_in_owner = true
 script = ExtResource("2_hqjfi")
 levels = Array[PackedScene]([ExtResource("3_3vkvw"), ExtResource("4_kfc0v")])
 
+[node name="TestLevel" parent="LevelManager" instance=ExtResource("3_3vkvw")]
+
 [node name="AudioManager" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_kurjy")
 
 [node name="BubbleBlower" type="Node" parent="."]
-
-[node name="GameUI" parent="." instance=ExtResource("6_0lli8")]
