@@ -85,9 +85,7 @@ func release_bubble() -> void:
 		# Floor the air_blown value and cap it at LUNG_CAPACITY_MAX
 		var final_size = floor(min(air_blown, LUNG_CAPACITY_MAX))
 		blow_bubble(final_size)
-		# Reduce lung capacity by the amount of air used
-		set_lung_capacity(lung_capacity - final_size)
-		# Reduce soap based on how much air was blown
+		set_lung_capacity(floor(lung_capacity))
 		set_remaining_soap(remaining_soap - (final_size * SOAP_COST_MULTIPLIER))
 	
 	# Reset blowing state
