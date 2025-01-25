@@ -24,6 +24,4 @@ levels = Array[PackedScene]([ExtResource("3_3vkvw"), ExtResource("4_kfc0v")])
 unique_name_in_owner = true
 script = ExtResource("2_kurjy")
 
-[node name="BubbleBlower" type="Node" parent="."]
-
 [node name="GameUI" parent="." instance=ExtResource("6_0lli8")]
