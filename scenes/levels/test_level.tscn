@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://b0vajwj1ekdvu"]
+[gd_scene load_steps=7 format=4 uid="uid://b0vajwj1ekdvu"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_2uyvo"]
 [ext_resource type="PackedScene" uid="uid://b483ejt55vdvt" path="res://scenes/goal.tscn" id="2_5da4q"]
@@ -1293,6 +1293,12 @@ terrain_set_0/terrain_2/name = "water"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_urgl5")
 
+[sub_resource type="Curve2D" id="Curve2D_d8rtr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 104, 136, 0, 0, 0, 0, 184, 136, 0, 0, 0, 0, 184, 216, 0, 0, 0, 0, 248, 216, 0, 0, 0, 0, 248, 56, 0, 0, 0, 0, 312, 56, 0, 0, 0, 0, 312, 136, 0, 0, 0, 0, 392, 136)
+}
+point_count = 8
+
 [node name="TestLevel" type="Node2D" groups=["level"]]
 
 [node name="Panel" type="Panel" parent="."]
@@ -1322,3 +1328,6 @@ position = Vector2(104, 136)
 position = Vector2(392, 136)
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="BubblePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_d8rtr")
