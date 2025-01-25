@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj1qp8nd2dffi"]
+[gd_scene load_steps=9 format=3 uid="uid://bj1qp8nd2dffi"]
 
 [ext_resource type="Theme" uid="uid://bbc3aj1lli3ej" path="res://assets/tilemaps/UI_theme2.tres" id="1_atmu5"]
 [ext_resource type="Texture2D" uid="uid://cvqkm3fl6ol7p" path="res://assets/sprites/UI/button_idle1.png" id="2_wqs46"]
 [ext_resource type="Texture2D" uid="uid://yvmbyvoeywlu" path="res://assets/sprites/UI/button_idle3.png" id="3_llp6i"]
 [ext_resource type="Texture2D" uid="uid://cytsy7xoctpw7" path="res://assets/sprites/UI/button_idle2.png" id="4_b3i4h"]
 [ext_resource type="Texture2D" uid="uid://dmgd6p1wfxg8a" path="res://assets/sprites/UI/lung_capasity.png" id="5_5nbpe"]
+[ext_resource type="Script" path="res://scripts/bubble_blower.gd" id="5_jm454"]
 [ext_resource type="Texture2D" uid="uid://b356chht4wrba" path="res://assets/sprites/UI/soap_container.png" id="6_jidbm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgij"]
@@ -26,6 +27,7 @@ texture_normal = ExtResource("2_wqs46")
 texture_pressed = ExtResource("3_llp6i")
 texture_hover = ExtResource("4_b3i4h")
 stretch_mode = 5
+script = ExtResource("5_jm454")
 
 [node name="LungCapasitySprite" type="TextureRect" parent="."]
 z_index = 1
