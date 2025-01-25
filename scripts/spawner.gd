@@ -10,6 +10,7 @@ extends Node2D
 
 # Dictionary to store bubble scenes by size
 var bubble_scenes: Dictionary = {}
+var bubble_path: Path2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,11 @@ func _ready() -> void:
 		5: bubble_5,
 		6: bubble_6
 	}
+	
+	# Find the BubblePath in the level
+	bubble_path = get_parent().get_node_or_null("BubblePath")
+	if not bubble_path:
+		push_error("No BubblePath found in level!")
 	
 	# Debug print available bubble scenes
 	print("Spawner initialized with scenes at path: ", get_path())
@@ -40,10 +46,15 @@ func spawn_bubble(size: int) -> void:
 		push_warning("No bubble scene assigned for size: %d" % size)
 		return
 		
+	if not bubble_path:
+		push_warning("Cannot spawn bubble - no path assigned!")
+		return
+		
 	print("Instantiating bubble scene for size: ", size)
 	var bubble = bubble_scene.instantiate()
 	add_child(bubble)
 	bubble.global_position = global_position
+	bubble.set_path(bubble_path)  # Pass the path to the bubble
 	print("Bubble spawned at position: ", global_position)
 
 func _notification(what: int) -> void:
