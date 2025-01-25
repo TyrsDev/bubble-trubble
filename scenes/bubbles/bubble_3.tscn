@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sro5i0eudl8e"]
+
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_180ry"]
+[ext_resource type="Texture2D" uid="uid://cknpqiecnec3r" path="res://assets/sprites/bubbles/bubble3.png" id="2_rynag"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agpxj"]
+
+[node name="Bubble 3" type="Node2D"]
+script = ExtResource("1_180ry")
+hp = 4
+speed = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rynag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_agpxj")
