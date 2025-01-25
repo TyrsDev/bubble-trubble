@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://bj1qp8nd2dffi"]
+
+[ext_resource type="Theme" uid="uid://bbc3aj1lli3ej" path="res://assets/tilemaps/UI_theme2.tres" id="1_atmu5"]
+[ext_resource type="Texture2D" uid="uid://cvqkm3fl6ol7p" path="res://assets/sprites/UI/button_idle1.png" id="2_wqs46"]
+[ext_resource type="Texture2D" uid="uid://yvmbyvoeywlu" path="res://assets/sprites/UI/button_idle3.png" id="3_llp6i"]
+[ext_resource type="Texture2D" uid="uid://cytsy7xoctpw7" path="res://assets/sprites/UI/button_idle2.png" id="4_b3i4h"]
+[ext_resource type="Texture2D" uid="uid://dmgd6p1wfxg8a" path="res://assets/sprites/UI/lung_capasity.png" id="5_5nbpe"]
+[ext_resource type="Texture2D" uid="uid://b356chht4wrba" path="res://assets/sprites/UI/soap_container.png" id="6_jidbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgij"]
+bg_color = Color(0.615905, 0.00298565, 0.893945, 1)
+
+[node name="GameUI" type="HBoxContainer"]
+offset_left = 14.0
+offset_top = 194.0
+offset_right = 102.0
+offset_bottom = 258.0
+theme = ExtResource("1_atmu5")
+
+[node name="BlowBubbleButton" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_wqs46")
+texture_pressed = ExtResource("3_llp6i")
+texture_hover = ExtResource("4_b3i4h")
+stretch_mode = 5
+
+[node name="LungCapasitySprite" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("5_5nbpe")
+stretch_mode = 5
+
+[node name="LungBar" type="ProgressBar" parent="LungCapasitySprite"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.0
+offset_top = 10.0
+offset_right = 7.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme = ExtResource("1_atmu5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vkgij")
+max_value = 6.0
+step = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="SoapBarSprite" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("6_jidbm")
+stretch_mode = 5
+
+[node name="SoapBar" type="ProgressBar" parent="SoapBarSprite"]
+z_as_relative = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 17.0
+offset_right = 13.0
+offset_bottom = 46.0
+step = 1.0
+value = 71.0
+fill_mode = 3
+show_percentage = false
