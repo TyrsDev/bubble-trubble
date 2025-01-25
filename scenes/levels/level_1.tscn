@@ -1320,6 +1320,7 @@ tile_map_data = PackedByteArray("AAALAAgAAAADAAYAAAAKAAgAAAACAAcAAAAJAAgAAAACAAM
 tile_set = SubResource("TileSet_qhkoc")
 
 [node name="Spawner" parent="." instance=ExtResource("1_7h3np")]
+unique_name_in_owner = true
 position = Vector2(104, 136)
 
 [node name="Goal" parent="." instance=ExtResource("2_qyw1h")]
