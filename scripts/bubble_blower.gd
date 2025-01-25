@@ -10,10 +10,12 @@ const SOAP_CAPACITY_MAX: float = 100.0
 
 var is_blowing: bool = false
 var air_blown: float = 0.0
+var breath_level: int = 1  # New variable to track discrete breath levels
 
 const BLOW_RATE: float = 1.0  # How fast lung capacity depletes per second
 const RECOVER_RATE: float = 2.0  # How fast lung capacity recovers per second
 const SOAP_COST_MULTIPLIER: float = 5.0  # How much soap is used per unit of air blown
+const BREATH_INTERVAL: float = 1.0  # Time in seconds per breath level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,22 +45,29 @@ func set_remaining_soap(value: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_accept") or button_pressed:  # Check either input
+	if Input.is_action_pressed("ui_accept") or button_pressed:
 		if Input.is_action_just_pressed("ui_accept"):
-			# Only handle button down logic, don't trigger the signal
-			air_blown = 1.0
-			is_blowing = true
-			set_pressed_no_signal(true)
-		elif lung_capacity > 0:
+			if lung_capacity >= 1.0:  # Check if we have enough capacity to start
+				breath_level = 1
+				air_blown = 0.0
+				is_blowing = true
+				set_lung_capacity(lung_capacity - 1.0)  # Immediately consume first level
+				set_pressed_no_signal(true)
+		elif is_blowing and lung_capacity >= 1.0:  # Only continue if already blowing and have capacity
 			air_blown += delta
-			if air_blown > LUNG_CAPACITY_MAX:
-				set_pressed_no_signal(false)
-				is_blowing = false  # Stop blowing without releasing bubble
-			else:
-				set_lung_capacity(lung_capacity - (BLOW_RATE * delta))
+			# Calculate new breath level based on time held
+			var new_level = int(floor(air_blown / BREATH_INTERVAL)) + 1
+			if new_level > breath_level:
+				if new_level >= LUNG_CAPACITY_MAX:
+					# If we reach max level, consume remaining lung capacity and set to max
+					breath_level = int(LUNG_CAPACITY_MAX)
+					set_lung_capacity(0.0)  # Consume all remaining capacity
+				elif new_level < LUNG_CAPACITY_MAX:
+					# Normal level increase
+					set_lung_capacity(lung_capacity - 1.0)
+					breath_level = new_level
 		else:
 			set_pressed_no_signal(false)
-			is_blowing = false  # Stop blowing without releasing bubble
 	elif is_blowing:
 		release_bubble()  # Only release bubble when stopping naturally
 	elif lung_capacity < LUNG_CAPACITY_MAX:
@@ -72,8 +81,11 @@ func _process(delta: float) -> void:
 			release_bubble()
 
 func _on_button_down() -> void:
-	air_blown = 1.0
-	is_blowing = true
+	if lung_capacity >= 1.0:  # Check if we have enough capacity to start
+		breath_level = 1
+		air_blown = 0.0
+		is_blowing = true
+		set_lung_capacity(lung_capacity - 1.0)  # Immediately consume first level
 
 func _on_button_up() -> void:
 	if is_blowing:  # Only release if we were actually blowing
@@ -81,16 +93,15 @@ func _on_button_up() -> void:
 	set_pressed_no_signal(false)
 
 func release_bubble() -> void:
-	if air_blown > 0:
-		# Floor the air_blown value and cap it at LUNG_CAPACITY_MAX
-		var final_size = floor(min(air_blown, LUNG_CAPACITY_MAX))
-		blow_bubble(final_size)
-		set_lung_capacity(floor(lung_capacity))
-		set_remaining_soap(remaining_soap - (final_size * SOAP_COST_MULTIPLIER))
+	if is_blowing:
+		# Use breath_level directly instead of calculating from air_blown
+		blow_bubble(breath_level)
+		set_remaining_soap(remaining_soap - (breath_level * SOAP_COST_MULTIPLIER))
 	
 	# Reset blowing state
 	is_blowing = false
 	air_blown = 0.0
+	breath_level = 1
 
 func blow_bubble(bubble_size: float) -> void:
 	print("Blowing bubble with size: ", bubble_size)  # Placeholder for actual bubble spawning
