@@ -18,6 +18,7 @@ offset_bottom = 258.0
 theme = ExtResource("1_atmu5")
 
 [node name="BlowBubbleButton" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
