@@ -1293,7 +1293,7 @@ terrain_set_0/terrain_2/name = "water"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_urgl5")
 
-[node name="TestLevel" type="Node2D"]
+[node name="TestLevel" type="Node2D" groups=["level"]]
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 480.0
@@ -1315,9 +1315,10 @@ tile_map_data = PackedByteArray("AAALAAgAAAADAAAAAAAKAAgAAAACAAcAAAAJAAgAAAACAAM
 tile_set = SubResource("TileSet_12skq")
 
 [node name="Spawner" parent="." instance=ExtResource("3_hbu2o")]
+unique_name_in_owner = true
 position = Vector2(104, 136)
 
 [node name="Goal" parent="." instance=ExtResource("2_5da4q")]
 position = Vector2(392, 136)
 
-[node name="Enemies" type="Node" parent="." groups=["level"]]
+[node name="Enemies" type="Node" parent="."]
