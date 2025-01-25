@@ -1,4 +1,4 @@
-extends Node
+extends CharacterBody2D
 
 @export_group('Bubble Properties')
 @export var hp: int
