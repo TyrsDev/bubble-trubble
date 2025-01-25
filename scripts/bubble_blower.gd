@@ -16,6 +16,9 @@ const RECOVER_RATE: float = 2.0  # How fast lung capacity recovers per second
 const SOAP_COST_MULTIPLIER: float = 5.0  # How much soap is used per unit of air blown
 const BREATH_INTERVAL: float = 0.5  # Time in seconds per breath level
 
+@onready var level_manager = get_node("/root/Game/%LevelManager")
+var current_spawner: Node2D = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Initialize progress bars with starting values
@@ -25,6 +28,20 @@ func _ready() -> void:
 	# Connect button signals
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
+	
+	# Connect to level manager's signal
+	if level_manager:
+		print("Found level manager, connecting signal...")
+		level_manager.level_changed.connect(_on_level_changed)
+		
+		# Find current level using group
+		var current_level = get_tree().get_first_node_in_group("level")
+		if current_level:
+			_on_level_changed(current_level)
+		else:
+			print("No current level found")
+	else:
+		push_error("LevelManager not found")
 
 func update_lung_bar() -> void:
 	if lung_bar:
@@ -102,6 +119,45 @@ func release_bubble() -> void:
 	air_blown = 0.0
 	breath_level = 1
 
+func _on_level_changed(level_node: Node) -> void:
+	print("Level changed signal received for level: ", level_node.get_path())
+	
+	# Clear old spawner reference first, but don't try to access it
+	current_spawner = null
+	
+	# Find the spawner in the new level
+	var spawner = level_node.get_node("Spawner")
+	if spawner and spawner is Node2D:
+		current_spawner = spawner
+		# Only print path if spawner is still valid
+		if is_instance_valid(spawner):
+			print("Found new spawner: ", spawner.get_path())
+	else:
+		push_error("Could not find Spawner node in level")
+
 func blow_bubble(bubble_size: float) -> void:
-	print("Blowing bubble with size: ", bubble_size)  # Placeholder for actual bubble spawning
-	# TODO: Implement bubble spawning logic here
+	print("Attempting to blow bubble of size: ", bubble_size)
+	
+	# Find current level and spawner dynamically
+	var current_level = get_tree().get_first_node_in_group("level")
+	if not current_level:
+		print("No current level found")
+		return
+		
+	var spawner = current_level.get_node_or_null("Spawner")
+	if not spawner or not spawner is Node2D:
+		print("No valid spawner found in current level")
+		return
+		
+	print("Found spawner, spawning bubble of size: ", bubble_size)
+	spawner.spawn_bubble(int(bubble_size))
+
+# Helper function to print node tree
+func print_tree_from(node: Node, indent: String = "") -> void:
+	print(indent + node.name + " (" + node.get_class() + ")")
+	for child in node.get_children():
+		print_tree_from(child, indent + "  ")
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		print("BubbleBlower being deleted")
