@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx7o6nx734q82"]
+[gd_scene load_steps=4 format=3 uid="uid://dx7o6nx734q82"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_mod7i"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="2_hqjfi"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="2_kurjy"]
 
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_mod7i")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LevelManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_hqjfi")
+
+[node name="AudioManager" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_kurjy")
