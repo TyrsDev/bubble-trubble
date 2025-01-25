@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://0il82jhs2wrj"]
+[gd_scene load_steps=6 format=4 uid="uid://0il82jhs2wrj"]
 
 [ext_resource type="PackedScene" uid="uid://bfrpe2mekle17" path="res://scenes/spawner.tscn" id="1_7h3np"]
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_j02wx"]
 [ext_resource type="PackedScene" uid="uid://b483ejt55vdvt" path="res://scenes/goal.tscn" id="2_qyw1h"]
-[ext_resource type="PackedScene" uid="uid://bj1qp8nd2dffi" path="res://scenes/game_ui.tscn" id="4_afvrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avq3a"]
 texture = ExtResource("1_j02wx")
@@ -1327,5 +1326,3 @@ position = Vector2(104, 136)
 position = Vector2(376, 136)
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="GameUI" parent="." instance=ExtResource("4_afvrr")]
