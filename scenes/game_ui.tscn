@@ -33,12 +33,13 @@ lung_bar = NodePath("../LungCapasitySprite/LungBar")
 soap_bar = NodePath("../SoapBarSprite/SoapBar")
 
 [node name="LungCapasitySprite" type="TextureRect" parent="."]
-z_index = 1
+z_index = 3
 layout_mode = 2
 texture = ExtResource("5_5nbpe")
 stretch_mode = 5
 
 [node name="LungBar" type="ProgressBar" parent="LungCapasitySprite"]
+z_index = 2
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 5
@@ -58,12 +59,13 @@ fill_mode = 3
 show_percentage = false
 
 [node name="SoapBarSprite" type="TextureRect" parent="."]
-z_index = 1
+z_index = 3
 layout_mode = 2
 texture = ExtResource("6_jidbm")
 stretch_mode = 5
 
 [node name="SoapBar" type="ProgressBar" parent="SoapBarSprite"]
+z_index = 2
 z_as_relative = false
 layout_mode = 0
 offset_left = 3.0
