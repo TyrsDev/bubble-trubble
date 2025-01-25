@@ -5,6 +5,11 @@ extends Node
 var current_level_index: int = 0
 
 func _ready() -> void:
+	# Clear any editor-placed level before loading the first runtime level
+	for child in get_children():
+		if child.is_in_group("level"):
+			child.queue_free()
+	
 	load_current_level()
 
 func _process(_delta) -> void:
