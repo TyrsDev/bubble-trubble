@@ -23,7 +23,8 @@ window/stretch/scale=4.0
 
 [global_group]
 
-bubble=""
+level="Group for all Level scenes"
+bubble="Group for all Bubble scenes"
 
 [rendering]
 
