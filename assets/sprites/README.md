@@ -1,0 +1,1 @@
+This folder contains the sprites, sprite sheets, tilemaps, and other sprite assets used in the project.

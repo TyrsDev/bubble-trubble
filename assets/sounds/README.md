@@ -1,0 +1,1 @@
+This folder contains the sound effects used in the project.
