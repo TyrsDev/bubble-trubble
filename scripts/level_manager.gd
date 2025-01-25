@@ -17,8 +17,12 @@ func _process(_delta) -> void:
 		restart_current_level()
 	elif Input.is_action_just_pressed("ui_cancel"):  # Esc key
 		reset_to_first_level()
-	elif Input.is_action_just_pressed("ui_accept"):  # Enter key
+	elif Input.is_action_just_pressed("ui_right"):  # Right arrow
 		complete_level(100)  # Debug value of 100 points for testing
+	elif Input.is_action_just_pressed("ui_left"):  # Left arrow
+		if current_level_index > 0:
+			current_level_index -= 1
+			load_current_level()
 
 func load_current_level() -> void:
 	if current_level_index >= levels.size():
