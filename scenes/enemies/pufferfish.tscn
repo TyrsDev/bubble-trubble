@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://clps5f5f5hhxh"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_erfki"]
+[ext_resource type="Script" path="res://scripts/pufferfish.gd" id="1_s4dw6"]
 [ext_resource type="Texture2D" uid="uid://f7ohem6r1img" path="res://assets/sprites/enemies/puffer.png" id="1_kaoo4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1e6aa"]
@@ -92,7 +92,7 @@ animations = [{
 radius = 32.0
 
 [node name="Pufferfish" type="Node2D"]
-script = ExtResource("1_erfki")
+script = ExtResource("1_s4dw6")
 detection_radius = 32.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
