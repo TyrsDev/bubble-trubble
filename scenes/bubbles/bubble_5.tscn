@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_agpxj"]
 radius = 14.0
 
-[node name="Bubble 5" type="Node2D"]
+[node name="Bubble 5" type="CharacterBody2D"]
 script = ExtResource("1_yb5du")
 hp = 8
 speed = 2

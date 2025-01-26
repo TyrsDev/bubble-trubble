@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export_group('Bubble Properties')
 @export var hp: int
@@ -24,4 +24,4 @@ func _process(delta: float) -> void:
 
 func set_path(new_path: Path2D) -> void:
 	path = new_path
-	progress = 0.0  # Start at beginning of path
+	progress = 0.0 # Start at beginning of path

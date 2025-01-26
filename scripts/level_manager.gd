@@ -17,11 +17,11 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_text_backspace"):
 		restart_current_level()
-	elif Input.is_action_just_pressed("ui_cancel"):  # Esc key
+	elif Input.is_action_just_pressed("ui_cancel"): # Esc key
 		reset_to_first_level()
-	elif Input.is_action_just_pressed("ui_right"):  # Right arrow
-		complete_level(100)  # Debug value of 100 points for testing
-	elif Input.is_action_just_pressed("ui_left"):  # Left arrow
+	elif Input.is_action_just_pressed("ui_right"): # Right arrow
+		complete_level(100) # Debug value of 100 points for testing
+	elif Input.is_action_just_pressed("ui_left"): # Left arrow
 		if current_level_index > 0:
 			current_level_index -= 1
 			load_current_level()
