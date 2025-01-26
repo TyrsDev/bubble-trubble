@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfrpe2mekle17"]
+[gd_scene load_steps=8 format=3 uid="uid://bfrpe2mekle17"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_kwgii"]
+[ext_resource type="PackedScene" uid="uid://c5v2hp7djhm2d" path="res://scenes/bubbles/bubble_1.tscn" id="2_h8lwl"]
+[ext_resource type="PackedScene" uid="uid://ckfgvk2nysoij" path="res://scenes/bubbles/bubble_2.tscn" id="3_bmjem"]
+[ext_resource type="PackedScene" uid="uid://sro5i0eudl8e" path="res://scenes/bubbles/bubble_3.tscn" id="4_2hxkp"]
+[ext_resource type="PackedScene" uid="uid://cxabswbty6m6l" path="res://scenes/bubbles/bubble_4.tscn" id="5_fh3g0"]
+[ext_resource type="PackedScene" uid="uid://bel3g4a4vg5dw" path="res://scenes/bubbles/bubble_5.tscn" id="6_roylw"]
+[ext_resource type="PackedScene" uid="uid://oe76c6i2q41q" path="res://scenes/bubbles/bubble_6.tscn" id="7_1d2dv"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_kwgii")
+bubble_1 = ExtResource("2_h8lwl")
+bubble_2 = ExtResource("3_bmjem")
+bubble_3 = ExtResource("4_2hxkp")
+bubble_4 = ExtResource("5_fh3g0")
+bubble_5 = ExtResource("6_roylw")
+bubble_6 = ExtResource("7_1d2dv")

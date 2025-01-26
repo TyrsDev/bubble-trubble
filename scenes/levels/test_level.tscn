@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://b0vajwj1ekdvu"]
+[gd_scene load_steps=10 format=4 uid="uid://b0vajwj1ekdvu"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_2uyvo"]
-[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="2_5da4q"]
+[ext_resource type="PackedScene" uid="uid://b483ejt55vdvt" path="res://scenes/goal.tscn" id="2_5da4q"]
 [ext_resource type="PackedScene" uid="uid://bfrpe2mekle17" path="res://scenes/spawner.tscn" id="3_hbu2o"]
 [ext_resource type="PackedScene" uid="uid://clps5f5f5hhxh" path="res://scenes/enemies/pufferfish.tscn" id="4_n133m"]
-[ext_resource type="PackedScene" uid="uid://sro5i0eudl8e" path="res://scenes/bubbles/bubble_3.tscn" id="5_ofwia"]
-[ext_resource type="PackedScene" uid="uid://c5v2hp7djhm2d" path="res://scenes/bubbles/bubble_1.tscn" id="6_h1r5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urgl5"]
 texture = ExtResource("1_2uyvo")
@@ -2681,7 +2679,13 @@ terrain_set_0/terrain_3/name = "trees"
 terrain_set_0/terrain_3/color = Color(0.675388, 0.00204305, 0.871824, 1)
 sources/0 = SubResource("TileSetAtlasSource_v8ged")
 
-[node name="TestLevel" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_nrm30"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 104, 136, 0, 0, 0, 0, 184, 136, 0, 0, 0, 0, 184, 216, 0, 0, 0, 0, 248, 216, 0, 0, 0, 0, 248, 56, 0, 0, 0, 0, 312, 56, 0, 0, 0, 0, 312, 136, 0, 0, 0, 0, 392, 136)
+}
+point_count = 8
+
+[node name="TestLevel" type="Node2D" groups=["level"]]
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 480.0
@@ -2708,6 +2712,7 @@ tile_map_data = PackedByteArray("AAAKAAYAAAADABEAAAAKAAUAAAADABEAAAAJAAYAAAABABE
 tile_set = SubResource("TileSet_2omyh")
 
 [node name="Spawner" parent="." instance=ExtResource("3_hbu2o")]
+unique_name_in_owner = true
 position = Vector2(104, 136)
 
 [node name="Goal" parent="." instance=ExtResource("2_5da4q")]
@@ -2721,8 +2726,5 @@ position = Vector2(216, 189)
 [node name="Pufferfish2" parent="Enemies" instance=ExtResource("4_n133m")]
 position = Vector2(280, 84)
 
-[node name="Bubble 3" parent="." instance=ExtResource("5_ofwia")]
-position = Vector2(184, 184)
-
-[node name="Bubble 1" parent="." instance=ExtResource("6_h1r5r")]
-position = Vector2(251, 57)
+[node name="BubblePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nrm30")

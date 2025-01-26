@@ -4,6 +4,8 @@ extends Node
 @export var levels: Array[PackedScene] = []
 var current_level_index: int = 0
 
+signal level_changed(level_node: Node)
+
 func _ready() -> void:
 	# Clear any editor-placed level before loading the first runtime level
 	for child in get_children():
@@ -15,11 +17,11 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_text_backspace"):
 		restart_current_level()
-	elif Input.is_action_just_pressed("ui_cancel"):  # Esc key
+	elif Input.is_action_just_pressed("ui_cancel"): # Esc key
 		reset_to_first_level()
-	elif Input.is_action_just_pressed("ui_right"):  # Right arrow
-		complete_level(100)  # Debug value of 100 points for testing
-	elif Input.is_action_just_pressed("ui_left"):  # Left arrow
+	elif Input.is_action_just_pressed("ui_right"): # Right arrow
+		complete_level(100) # Debug value of 100 points for testing
+	elif Input.is_action_just_pressed("ui_left"): # Left arrow
 		if current_level_index > 0:
 			current_level_index -= 1
 			load_current_level()
@@ -29,13 +31,18 @@ func load_current_level() -> void:
 		print("No more levels! Game complete!")
 		return
 		
+	# First clear old levels
 	for child in get_children():
 		if child.is_in_group("level"):
 			child.queue_free()
 	
+	# Create and add new level
 	var level_instance = levels[current_level_index].instantiate()
 	level_instance.add_to_group("level")
 	add_child(level_instance)
+	
+	# Finally emit the signal after the level is in the tree
+	level_changed.emit(level_instance)
 
 func complete_level(score: int) -> void:
 	game_manager.add_score(score)

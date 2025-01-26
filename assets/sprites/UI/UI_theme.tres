@@ -8,6 +8,9 @@ bg_color = Color(0.300591, 0.804628, 1, 1)
 border_width_top = 1
 
 [resource]
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 20
+Label/fonts/font = null
 Label/styles/normal = null
 ProgressBar/constants/outline_size = 20
 ProgressBar/styles/background = SubResource("StyleBoxFlat_7lcmd")
