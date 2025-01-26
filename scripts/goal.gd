@@ -1,6 +1,7 @@
 extends Node
 
 @onready var sheep_sprite: AnimatedSprite2D = $Sheep/Sheepie
+@onready var level_manager = $"/root/Game/LevelManager"
 const HAPPINESS_THRESHOLD = 3
 var current_happiness = 0
 var is_happy = false
@@ -39,3 +40,4 @@ func _on_stop_cry_finished() -> void:
 	if sheep_sprite.animation == "stop_cry":
 		sheep_sprite.animation_finished.disconnect(_on_stop_cry_finished)
 		sheep_sprite.play("idle")
+		level_manager.complete_level(100) # Award 100 points for completing the level

@@ -19,7 +19,7 @@ script = ExtResource("1_mod7i")
 [node name="LevelManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_hqjfi")
-levels = Array[PackedScene]([ExtResource("4_eoq1a"), ExtResource("3_3vkvw"), ExtResource("4_kfc0v")])
+levels = Array[PackedScene]([ExtResource("4_eoq1a"), ExtResource("4_kfc0v"), ExtResource("3_3vkvw")])
 
 [node name="TestLevel" parent="LevelManager" instance=ExtResource("3_3vkvw")]
 
