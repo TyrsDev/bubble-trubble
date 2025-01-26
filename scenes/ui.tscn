@@ -62,7 +62,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("1_tdxws")
 
-[node name="BlowBubbleButton" type="TextureButton" parent="GameUIContainer/GameUIMargin/GameUI"]
+[node name="BlowBubbleButton" type="TextureButton" parent="GameUIContainer/GameUIMargin/GameUI" node_paths=PackedStringArray("lung_bar", "soap_bar")]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 4
@@ -72,6 +72,8 @@ texture_pressed = ExtResource("5_lwd0v")
 texture_hover = ExtResource("6_mibqd")
 stretch_mode = 5
 script = ExtResource("7_rojsa")
+lung_bar = NodePath("../LungCapasitySprite/LungBar")
+soap_bar = NodePath("../SoapBarSprite/SoapBar")
 
 [node name="LungCapasitySprite" type="TextureRect" parent="GameUIContainer/GameUIMargin/GameUI"]
 z_index = 3
