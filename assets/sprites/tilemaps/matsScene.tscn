@@ -1,16 +1,18 @@
-[gd_scene load_steps=65 format=4 uid="uid://5q2eyqv8hwlo"]
+[gd_scene load_steps=69 format=4 uid="uid://5q2eyqv8hwlo"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_qqlfs"]
-[ext_resource type="Theme" uid="uid://cqyidho2ymmaj" path="res://assets/sprites/UI/UI_theme.tres" id="2_grgya"]
+[ext_resource type="Theme" uid="uid://dw3376ihe3h50" path="res://assets/sprites/UI/UI_theme.tres" id="2_grgya"]
 [ext_resource type="Texture2D" uid="uid://f7ohem6r1img" path="res://assets/sprites/enemies/puffer.png" id="2_vjeap"]
 [ext_resource type="Texture2D" uid="uid://c8bk0gynfidnt" path="res://assets/sprites/UI/frame.png" id="2_yc3sk"]
 [ext_resource type="Texture2D" uid="uid://cvqkm3fl6ol7p" path="res://assets/sprites/UI/button_idle1.png" id="3_64oyb"]
+[ext_resource type="Texture2D" uid="uid://v4jr830d3kuf" path="res://assets/sprites/UI/corner_background.png" id="4_esy0m"]
 [ext_resource type="Texture2D" uid="uid://yvmbyvoeywlu" path="res://assets/sprites/UI/button_idle3.png" id="4_qk8op"]
 [ext_resource type="Texture2D" uid="uid://cytsy7xoctpw7" path="res://assets/sprites/UI/button_idle2.png" id="4_rwrof"]
 [ext_resource type="Texture2D" uid="uid://dmgd6p1wfxg8a" path="res://assets/sprites/UI/lung_capasity.png" id="5_1liis"]
 [ext_resource type="Texture2D" uid="uid://b356chht4wrba" path="res://assets/sprites/UI/soap_container.png" id="6_mblmk"]
 [ext_resource type="Texture2D" uid="uid://y30wt6qxbomg" path="res://assets/sprites/bubbles/bubble6.png" id="9_3m5gd"]
 [ext_resource type="Texture2D" uid="uid://dprsjf3h4u61u" path="res://assets/sprites/bubbles/bubble1.png" id="10_inytu"]
+[ext_resource type="Texture2D" uid="uid://b6ndq8051v2ea" path="res://assets/sprites/UI/edge_background.png" id="10_wtfpt"]
 [ext_resource type="Texture2D" uid="uid://8hg8lpijq5w3" path="res://assets/sprites/enemies/bee.png" id="13_stdkm"]
 [ext_resource type="Texture2D" uid="uid://v4hpclpqp815" path="res://assets/sprites/sheep/sheep_cry_loop.png" id="14_6xs3o"]
 [ext_resource type="Texture2D" uid="uid://dkl8rxhyjaf5i" path="res://assets/sprites/sheep/sheep_idle.png" id="15_kkneu"]
@@ -1409,6 +1411,23 @@ texture_margin_top = 15.0
 texture_margin_right = 15.0
 texture_margin_bottom = 15.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vvfc"]
+texture = ExtResource("4_esy0m")
+texture_margin_left = 8.0
+texture_margin_top = 12.0
+texture_margin_right = 13.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgij"]
+bg_color = Color(0.615905, 0.00298565, 0.893945, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgr5y"]
+texture = ExtResource("10_wtfpt")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1e6aa"]
 atlas = ExtResource("2_vjeap")
 region = Rect2(0, 64, 64, 64)
@@ -1493,9 +1512,6 @@ animations = [{
 "name": &"idle",
 "speed": 2.0
 }]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkgij"]
-bg_color = Color(0.615905, 0.00298565, 0.893945, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1y8mx"]
 atlas = ExtResource("13_stdkm")
@@ -1784,11 +1800,98 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAKAAYAAAADABIAAAAKAAUAAAADABEAAAAJAAYAAAACABIAAAAJAAUAAAACABEAAAAIAAYAAAACABIAAAAIAAUAAAABABEAAAAHAAYAAAABABIAAAAHAAUAAAABABEAAAAGAAYAAAACABIAAAAGAAUAAAABABEAAAAKAAQAAAADABEAAAAJAAQAAAABABEAAAAIAAQAAAACABEAAAAHAAQAAAACABEAAAAGAAQAAAACABEAAAAOAAIAAAADABIAAAANAAMAAAADABIAAAANAAIAAAACABEAAAAMAAMAAAABABIAAAAMAAIAAAACABEAAAAWAAQAAAACABEAAAAWAAMAAAACABEAAAAVAAQAAAABABEAAAAVAAMAAAACABEAAAAUAAQAAAAAABEAAAAUAAMAAAABABEAAAAUAAYAAAAAABIAAAAVAAYAAAABABIAAAAWAAYAAAABABIAAAAXAAYAAAABABIAAAALAAkAAAADABAAAAAKAAkAAAABABAAAAAJAAkAAAABABAAAAAIAAoAAAACABIAAAAIAAkAAAACABAAAAAHAAsAAAADABIAAAAHAAoAAAABABEAAAAHAAkAAAACABAAAAAGAAsAAAABABIAAAAGAAoAAAABABEAAAAGAAkAAAABABAAAAAQAA0AAAACABAAAAAPAA0AAAABABEAAAAPAAwAAAADABAAAAAOAA0AAAABABEAAAAOAAwAAAABABAAAAANAA0AAAACABEAAAANAAwAAAACABAAAAAMAA0AAAAAABEAAAAMAAwAAAAAABAAAAAWAA0AAAABABEAAAAWAAwAAAABABEAAAAVAA0AAAABABEAAAAVAAwAAAACABEAAAAUAA0AAAACABEAAAAUAAwAAAAAABEAAAATAA0AAAABABAAAAASAA0AAAACABAAAAAWAAsAAAABABEAAAAWAAoAAAABABEAAAAWAAkAAAACABAAAAAVAAsAAAACABEAAAAVAAoAAAABABEAAAAVAAkAAAABABAAAAAUAAsAAAAAABEAAAAUAAoAAAAAABEAAAAUAAkAAAAAABAAAAANABAAAAABABIAAAANAA8AAAABABEAAAAMABAAAAABABIAAAAMAA8AAAABABEAAAAJAA8AAAACABAAAAAIAA8AAAACABAAAAASABAAAAABABIAAAASAA8AAAABABEAAAARABAAAAABABIAAAARAA8AAAACABEAAAAQABAAAAABABIAAAAQAA8AAAACABEAAAALAAMAAAABABIAAAALAAIAAAACABEAAAALAAEAAAABABEAAAAKAAMAAAABABEAAAAKAAIAAAABABEAAAAKAAEAAAACABEAAAAJAAMAAAABABEAAAAJAAIAAAABABEAAAAJAAEAAAABABEAAAAIAAMAAAACABEAAAAIAAIAAAACABEAAAAIAAEAAAABABEAAAAHAAMAAAACABEAAAAHAAIAAAACABEAAAAHAAEAAAABABEAAAAGAAMAAAACABEAAAAGAAIAAAACABEAAAAGAAEAAAABABEAAAAFAAMAAAACABEAAAAFAAIAAAABABEAAAAFAAEAAAACABEAAAAEAAMAAAABABEAAAAEAAIAAAACABEAAAAEAAEAAAABABEAAAADAAMAAAABABEAAAADAAIAAAACABEAAAADAAEAAAABABEAAAACAAMAAAACABEAAAACAAIAAAACABEAAAACAAEAAAACABEAAAABAAMAAAACABEAAAABAAIAAAABABEAAAABAAEAAAACABEAAAALAAAAAAABABEAAAAKAAAAAAACABAAAAAJAAAAAAACABAAAAAIAAAAAAACABAAAAAHAAAAAAABABAAAAAGAAAAAAACABAAAAAFAAAAAAACABAAAAAEAAAAAAACABAAAAADAAAAAAABABAAAAACAAAAAAACABAAAAABAAAAAAACABAAAAAFAAsAAAACABIAAAAFAAoAAAABABEAAAAFAAkAAAACABAAAAAFAAYAAAACABIAAAAFAAUAAAABABEAAAAFAAQAAAACABEAAAAEAAsAAAABABIAAAAEAAoAAAACABEAAAAEAAkAAAACABAAAAAEAAYAAAACABIAAAAEAAUAAAABABEAAAAEAAQAAAABABEAAAADAAsAAAACABIAAAADAAoAAAACABEAAAADAAkAAAACABAAAAADAAYAAAABABIAAAADAAUAAAACABEAAAADAAQAAAACABEAAAACAAsAAAACABIAAAACAAoAAAABABEAAAACAAkAAAACABAAAAACAAYAAAACABIAAAACAAUAAAABABEAAAACAAQAAAACABEAAAABAAsAAAABABIAAAABAAoAAAABABEAAAABAAkAAAABABAAAAABAAYAAAABABIAAAABAAUAAAACABEAAAABAAQAAAACABEAAAAAAAsAAAAAABIAAAAAAAoAAAAAABEAAAAAAAkAAAAAABAAAAAAAAcAAAAAABIAAAAAAAYAAAAAABEAAAAAAAUAAAAAABEAAAAAAAQAAAAAABEAAAAAAAMAAAAAABEAAAAAAAIAAAAAABEAAAAAAAEAAAAAABEAAAAAAAAAAAAAABAAAAAKABAAAAACABIAAAAKAA8AAAABABAAAAAJABAAAAABABIAAAAIABAAAAACABIAAAAHABAAAAAAABIAAAAHAA8AAAAAABAAAAAWABAAAAABABIAAAAWAA8AAAACABEAAAAWAA4AAAACABEAAAAVABAAAAACABIAAAAVAA8AAAABABEAAAAVAA4AAAACABEAAAAUABAAAAABABIAAAAUAA8AAAABABEAAAAUAA4AAAABABEAAAATABAAAAACABIAAAATAA8AAAABABEAAAATAA4AAAACABEAAAASAA4AAAABABEAAAARAA4AAAACABEAAAARAA0AAAABABAAAAAQAA4AAAACABEAAAAPABAAAAABABIAAAAPAA8AAAABABEAAAAPAA4AAAACABEAAAAOABAAAAABABIAAAAOAA8AAAABABEAAAAOAA4AAAABABEAAAANAA4AAAABABEAAAAMAA4AAAACABEAAAALABAAAAABABIAAAALAA8AAAABABEAAAALAA4AAAAAABAAAAAYABAAAAABABIAAAAYAA8AAAABABEAAAAYAA4AAAACABEAAAAYAA0AAAACABEAAAAYAAwAAAACABEAAAAYAAsAAAACABEAAAAYAAoAAAADABEAAAAYAAkAAAADABAAAAAXABAAAAACABIAAAAXAA8AAAABABEAAAAXAA4AAAABABEAAAAXAA0AAAABABEAAAAXAAwAAAACABEAAAAXAAsAAAABABEAAAAXAAoAAAACABEAAAAXAAkAAAABABAAAAAdAA8AAAACABEAAAAdAA4AAAABABEAAAAdAA0AAAABABEAAAAdAAwAAAABABEAAAAdAAsAAAABABEAAAAcAA8AAAABABEAAAAcAA4AAAACABEAAAAcAA0AAAABABEAAAAcAAwAAAABABEAAAAcAAsAAAACABEAAAAbAA8AAAABABEAAAAbAA4AAAACABEAAAAbAA0AAAABABEAAAAbAAwAAAABABEAAAAbAAsAAAABABAAAAAaAA8AAAABABEAAAAaAA4AAAABABEAAAAaAA0AAAACABEAAAAaAAwAAAABABEAAAAaAAsAAAABABAAAAAZAA8AAAABABEAAAAZAA4AAAABABEAAAAZAA0AAAABABEAAAAZAAwAAAABABEAAAAZAAsAAAACABAAAAAcABAAAAACABIAAAAbABAAAAACABIAAAAaABAAAAACABIAAAAZABAAAAACABIAAAAdABAAAAABABIAAAAeABAAAAADABIAAAAeAA8AAAADABEAAAAeAA4AAAADABEAAAAeAA0AAAADABEAAAAeAAwAAAADABEAAAAeAAsAAAADABEAAAAeAAoAAAADABEAAAAeAAkAAAADABEAAAAeAAgAAAADABEAAAAeAAcAAAADABEAAAAeAAYAAAADABEAAAAeAAUAAAADABEAAAAeAAQAAAADABEAAAAeAAMAAAADABEAAAAeAAIAAAADABEAAAAeAAEAAAADABEAAAAeAAAAAAADABEAAAAeAP//AAADABAAAAAdAAoAAAACABEAAAAdAAkAAAABABEAAAAdAAgAAAABABEAAAAdAAcAAAABABEAAAAdAAYAAAACABEAAAAdAAUAAAABABEAAAAdAAQAAAACABEAAAAdAAMAAAACABEAAAAdAAIAAAABABEAAAAdAAEAAAABABEAAAAdAAAAAAABABEAAAAdAP//AAABABAAAAAcAAoAAAAAABEAAAAcAAkAAAAAABEAAAAcAAgAAAAAABEAAAAcAAcAAAAAABEAAAAcAAYAAAAAABEAAAAcAAUAAAACABEAAAAcAAQAAAACABEAAAAcAAMAAAACABEAAAAcAAIAAAACABEAAAAcAAEAAAABABEAAAAcAAAAAAACABEAAAAcAP//AAACABAAAAAbAAUAAAABABIAAAAbAAQAAAACABEAAAAbAAMAAAACABEAAAAbAAIAAAACABEAAAAbAAEAAAACABEAAAAbAAAAAAACABEAAAAbAP//AAACABAAAAAaAAUAAAABABIAAAAaAAQAAAABABEAAAAaAAMAAAACABEAAAAaAAIAAAABABEAAAAaAAEAAAACABEAAAAaAAAAAAABABEAAAAaAP//AAABABAAAAAZAAUAAAABABIAAAAZAAQAAAACABEAAAAZAAMAAAABABEAAAAZAAIAAAABABEAAAAZAAEAAAABABEAAAAZAAAAAAACABEAAAAZAP//AAACABAAAAAYAAUAAAACABEAAAAYAAQAAAACABEAAAAYAAMAAAABABEAAAAYAAIAAAABABEAAAAYAAEAAAABABEAAAAYAAAAAAACABEAAAAYAP//AAABABAAAAAXAAUAAAABABEAAAAXAAQAAAACABEAAAAXAAMAAAABABEAAAAXAAIAAAACABEAAAAXAAEAAAABABEAAAAXAAAAAAABABEAAAAXAP//AAACABAAAAAWAAUAAAABABEAAAAWAAIAAAACABEAAAAWAAEAAAACABEAAAAWAAAAAAACABEAAAAWAP//AAABABAAAAAVAAUAAAABABEAAAAVAAIAAAACABEAAAAVAAEAAAACABEAAAAVAAAAAAABABEAAAAVAP//AAABABAAAAAUAAUAAAAAABEAAAAUAAIAAAACABEAAAAUAAEAAAABABEAAAAUAAAAAAABABEAAAAUAP//AAACABAAAAATAAMAAAAAABIAAAATAAIAAAABABEAAAATAAEAAAACABEAAAATAAAAAAACABEAAAATAP//AAACABAAAAASAAIAAAACABIAAAASAAEAAAACABEAAAASAAAAAAACABEAAAASAP//AAACABAAAAARAAIAAAAAABIAAAARAAEAAAACABEAAAARAAAAAAABABEAAAARAP//AAACABAAAAAQAAEAAAABABIAAAAQAAAAAAACABEAAAAQAP//AAABABAAAAAPAAEAAAACABIAAAAPAAAAAAACABEAAAAPAP//AAABABAAAAAOAAEAAAACABEAAAAOAAAAAAACABEAAAAOAP//AAACABAAAAANAAEAAAABABEAAAANAAAAAAACABEAAAANAP//AAACABAAAAAMAAEAAAABABEAAAAMAAAAAAACABEAAAAMAP//AAABABAAAAALAP//AAACABAAAAAYAAYAAAADABIAAAAKAAwAAAADABAAAAAJAAwAAAAAABAAAAALAAoAAAADABIAAAAKAAoAAAACABIAAAAJAAoAAAACABIAAAAKAA0AAAADABIAAAAJAA0AAAAAABIAAAA=")
 tile_set = SubResource("TileSet_ligas")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="UI" type="Panel" parent="."]
 custom_minimum_size = Vector2(480, 270)
 offset_right = 480.0
 offset_bottom = 270.0
+theme = ExtResource("2_grgya")
 theme_override_styles/panel = SubResource("StyleBoxTexture_48tcx")
+
+[node name="GameUIContainer" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -83.0
+offset_right = 125.0
+grow_vertical = 0
+theme = ExtResource("2_grgya")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1vvfc")
+
+[node name="GameUIMargin" type="MarginContainer" parent="UI/GameUIContainer"]
+layout_mode = 2
+
+[node name="GameUI" type="HBoxContainer" parent="UI/GameUIContainer/GameUIMargin"]
+layout_mode = 2
+theme = ExtResource("2_grgya")
+
+[node name="BlowBubbleButton" type="TextureButton" parent="UI/GameUIContainer/GameUIMargin/GameUI"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_64oyb")
+texture_pressed = ExtResource("4_qk8op")
+texture_hover = ExtResource("4_rwrof")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="UI/GameUIContainer/GameUIMargin/GameUI"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LungCapasitySprite" type="TextureRect" parent="UI/GameUIContainer/GameUIMargin/GameUI"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("5_1liis")
+stretch_mode = 5
+
+[node name="LungBar" type="ProgressBar" parent="UI/GameUIContainer/GameUIMargin/GameUI/LungCapasitySprite"]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -7.0
+offset_top = 1.0
+offset_right = 7.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme = ExtResource("2_grgya")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vkgij")
+max_value = 6.0
+step = 1.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="SoapBarSprite" type="TextureRect" parent="UI/GameUIContainer/GameUIMargin/GameUI"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("6_mblmk")
+stretch_mode = 5
+
+[node name="SoapBar" type="ProgressBar" parent="UI/GameUIContainer/GameUIMargin/GameUI/SoapBarSprite"]
+z_as_relative = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 13.0
+offset_bottom = 37.0
+step = 1.0
+value = 71.0
+fill_mode = 3
+show_percentage = false
+
+[node name="LevelLabelContainer" type="PanelContainer" parent="UI"]
+layout_mode = 0
+offset_top = 19.0
+offset_right = 78.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lgr5y")
+
+[node name="LevelLabel" type="Label" parent="UI/LevelLabelContainer"]
+layout_mode = 2
+text = "Level 1"
 
 [node name="Puffer" type="AnimatedSprite2D" parent="."]
 position = Vector2(280, 153)
@@ -1801,65 +1904,6 @@ position = Vector2(216, 120)
 sprite_frames = SubResource("SpriteFrames_a3vgy")
 animation = &"idle"
 autoplay = "idle"
-
-[node name="GameUI" type="HBoxContainer" parent="."]
-offset_left = 14.0
-offset_top = 194.0
-offset_right = 102.0
-offset_bottom = 258.0
-theme = ExtResource("2_grgya")
-
-[node name="BlowBubbleButton" type="TextureButton" parent="GameUI"]
-layout_mode = 2
-size_flags_vertical = 4
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_64oyb")
-texture_pressed = ExtResource("4_qk8op")
-texture_hover = ExtResource("4_rwrof")
-stretch_mode = 5
-
-[node name="LungCapasitySprite" type="TextureRect" parent="GameUI"]
-z_index = 1
-layout_mode = 2
-texture = ExtResource("5_1liis")
-stretch_mode = 5
-
-[node name="LungBar" type="ProgressBar" parent="GameUI/LungCapasitySprite"]
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -7.0
-offset_top = 10.0
-offset_right = 7.0
-offset_bottom = 47.0
-grow_horizontal = 2
-theme = ExtResource("2_grgya")
-theme_override_styles/fill = SubResource("StyleBoxFlat_vkgij")
-max_value = 6.0
-step = 1.0
-value = 1.0
-fill_mode = 3
-show_percentage = false
-
-[node name="SoapBarSprite" type="TextureRect" parent="GameUI"]
-z_index = 1
-layout_mode = 2
-texture = ExtResource("6_mblmk")
-stretch_mode = 5
-
-[node name="SoapBar" type="ProgressBar" parent="GameUI/SoapBarSprite"]
-z_as_relative = false
-layout_mode = 0
-offset_left = 3.0
-offset_top = 17.0
-offset_right = 13.0
-offset_bottom = 46.0
-step = 1.0
-value = 71.0
-fill_mode = 3
-show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
