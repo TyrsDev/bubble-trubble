@@ -35,11 +35,43 @@ func apply_damage(amount: int):
 	if is_dead:
 		return
 	
-	hp -= amount		
+	hp -= amount	
 	
 	if hp <= 0:
 		pop()
+	else:
+		animation.play("damage")
 
 func pop():
 	is_dead = true
+	animation.play("burst")
+
+
+func _on_bubble_1_animation_finished() -> void:
+	print("Burst bubble 1")
 	queue_free()
+
+func _on_bubble_2_animation_finished() -> void:
+	if (animation.animation == "burst"):
+		print("Burst bubble 2")
+		queue_free()
+	
+func _on_bubble_3_animation_finished() -> void:
+	if (animation.animation == "burst"):
+		print("Burst bubble 3")
+		queue_free()
+
+func _on_bubble_4_animation_finished() -> void:
+	if (animation.animation == "burst"):
+		print("Burst bubble 4")
+		queue_free()
+
+func _on_bubble_5_animation_finished() -> void:
+	if (animation.animation == "burst"):
+		print("Burst bubble 5")
+		queue_free()
+
+func _on_bubble_6_animation_finished() -> void:
+	if (animation.animation == "burst"):
+		print("Burst bubble 6")
+		queue_free()

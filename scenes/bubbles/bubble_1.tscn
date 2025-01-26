@@ -1,7 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5v2hp7djhm2d"]
+[gd_scene load_steps=12 format=3 uid="uid://c5v2hp7djhm2d"]
 
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_p62pj"]
 [ext_resource type="Texture2D" uid="uid://dprsjf3h4u61u" path="res://assets/sprites/bubbles/bubble1.png" id="2_of6h3"]
+[ext_resource type="Texture2D" uid="uid://boytgtfhob70h" path="res://assets/sprites/bubbles/bubble1_burst.png" id="3_eeco8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34t5"]
+atlas = ExtResource("3_eeco8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sppu8"]
+atlas = ExtResource("3_eeco8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pavm"]
+atlas = ExtResource("3_eeco8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4klla"]
+atlas = ExtResource("3_eeco8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xshs6"]
+atlas = ExtResource("3_eeco8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppoi4"]
+atlas = ExtResource("2_of6h3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nf8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l34t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sppu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pavm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4klla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xshs6")
+}],
+"loop": false,
+"name": &"burst",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppoi4")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_agpxj"]
 radius = 6.0
@@ -11,8 +67,11 @@ script = ExtResource("1_p62pj")
 hp = 1
 speed = 40
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_of6h3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1nf8r")
+animation = &"burst"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_agpxj")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_bubble_1_animation_finished"]
