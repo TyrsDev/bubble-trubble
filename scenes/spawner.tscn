@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfrpe2mekle17"]
+[gd_scene load_steps=13 format=3 uid="uid://bfrpe2mekle17"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_kwgii"]
 [ext_resource type="PackedScene" uid="uid://c5v2hp7djhm2d" path="res://scenes/bubbles/bubble_1.tscn" id="2_h8lwl"]
@@ -7,6 +7,39 @@
 [ext_resource type="PackedScene" uid="uid://cxabswbty6m6l" path="res://scenes/bubbles/bubble_4.tscn" id="5_fh3g0"]
 [ext_resource type="PackedScene" uid="uid://bel3g4a4vg5dw" path="res://scenes/bubbles/bubble_5.tscn" id="6_roylw"]
 [ext_resource type="PackedScene" uid="uid://oe76c6i2q41q" path="res://scenes/bubbles/bubble_6.tscn" id="7_1d2dv"]
+[ext_resource type="Texture2D" uid="uid://cpgbo7k6x0ufd" path="res://assets/sprites/UI/spawn_loop.png" id="8_iow7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3qxx"]
+atlas = ExtResource("8_iow7p")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf43l"]
+atlas = ExtResource("8_iow7p")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qthvv"]
+atlas = ExtResource("8_iow7p")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrx1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3qxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf43l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qthvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf43l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_kwgii")
@@ -16,3 +49,8 @@ bubble_3 = ExtResource("4_2hxkp")
 bubble_4 = ExtResource("5_fh3g0")
 bubble_5 = ExtResource("6_roylw")
 bubble_6 = ExtResource("7_1d2dv")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_qrx1x")
+autoplay = "default"
