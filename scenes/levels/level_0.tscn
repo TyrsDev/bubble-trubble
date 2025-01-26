@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://ddtuodeofioqb"]
+[gd_scene load_steps=33 format=4 uid="uid://dx42gdrmx1lg0"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_or0wr"]
 [ext_resource type="PackedScene" uid="uid://bfrpe2mekle17" path="res://scenes/spawner.tscn" id="2_r2rma"]
