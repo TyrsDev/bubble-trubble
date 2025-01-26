@@ -94,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0t075")
 }],
-"loop": true,
+"loop": false,
 "name": &"start_cry",
 "speed": 5.0
 }, {
@@ -111,7 +111,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_64c1x")
 }],
-"loop": true,
+"loop": false,
 "name": &"stop_cry",
 "speed": 5.0
 }]
@@ -126,5 +126,7 @@ shape = SubResource("CircleShape2D_w36ye")
 
 [node name="Sheepie" type="AnimatedSprite2D" parent="Sheep"]
 sprite_frames = SubResource("SpriteFrames_3obxh")
-animation = &"cry_loop"
+animation = &"stop_cry"
 autoplay = "cry_loop"
+
+[connection signal="body_entered" from="Sheep" to="." method="_on_sheep_body_entered"]
