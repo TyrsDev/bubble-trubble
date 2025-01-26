@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1fyeiuuvjquw"]
 
 [ext_resource type="Texture2D" uid="uid://dqgfy378o8yhc" path="res://assets/sprites/UI/1x/Splash-50.jpg" id="1_ards2"]
-[ext_resource type="Theme" uid="uid://bbc3aj1lli3ej" path="res://assets/sprites/UI/UI_theme.tres" id="1_tn45a"]
+[ext_resource type="Theme" uid="uid://cqyidho2ymmaj" path="res://assets/sprites/UI/UI_theme.tres" id="1_tn45a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klyie"]
 texture = ExtResource("1_ards2")
