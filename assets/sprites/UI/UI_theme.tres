@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dw3376ihe3h50"]
-
-[ext_resource type="FontFile" uid="uid://c85gcgot0ybex" path="res://assets/fonts/Tiny5-Regular.ttf" id="1_kc2c6"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqyidho2ymmaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lcmd"]
 bg_color = Color(0, 0.243137, 0.454902, 0.698039)
@@ -10,9 +8,9 @@ bg_color = Color(0.300591, 0.804628, 1, 1)
 border_width_top = 1
 
 [resource]
-Label/constants/outline_size = 1
-Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_kc2c6")
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 20
+Label/fonts/font = null
 Label/styles/normal = null
 ProgressBar/constants/outline_size = 20
 ProgressBar/styles/background = SubResource("StyleBoxFlat_7lcmd")
