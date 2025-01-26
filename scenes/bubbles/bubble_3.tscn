@@ -8,7 +8,7 @@
 [node name="Bubble 3" type="CharacterBody2D"]
 script = ExtResource("1_180ry")
 hp = 4
-speed = 6
+speed = 32
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rynag")
