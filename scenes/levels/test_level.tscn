@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_2uyvo"]
 [ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="2_5da4q"]
-[ext_resource type="PackedScene" uid="uid://ntyxgpu8hjvo" path="res://scenes/spawner.tscn" id="3_hbu2o"]
+[ext_resource type="PackedScene" uid="uid://bfrpe2mekle17" path="res://scenes/spawner.tscn" id="3_hbu2o"]
 [ext_resource type="PackedScene" uid="uid://clps5f5f5hhxh" path="res://scenes/enemies/pufferfish.tscn" id="4_n133m"]
 [ext_resource type="PackedScene" uid="uid://sro5i0eudl8e" path="res://scenes/bubbles/bubble_3.tscn" id="5_ofwia"]
 [ext_resource type="PackedScene" uid="uid://c5v2hp7djhm2d" path="res://scenes/bubbles/bubble_1.tscn" id="6_h1r5r"]
