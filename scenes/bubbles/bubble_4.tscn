@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"burst",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -83,7 +83,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"damage",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -104,7 +104,7 @@ speed = 28
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iyuyi")
-animation = &"damage"
+animation = &"burst"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_agpxj")
