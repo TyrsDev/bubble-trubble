@@ -39,7 +39,3 @@ func _on_stop_cry_finished() -> void:
 	if sheep_sprite.animation == "stop_cry":
 		sheep_sprite.animation_finished.disconnect(_on_stop_cry_finished)
 		sheep_sprite.play("idle")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
