@@ -1,7 +1,7 @@
 [gd_scene load_steps=69 format=4 uid="uid://5q2eyqv8hwlo"]
 
 [ext_resource type="Texture2D" uid="uid://bmph5ngirriqa" path="res://assets/sprites/tilemaps/tilemap_grass.png" id="1_qqlfs"]
-[ext_resource type="Theme" uid="uid://dw3376ihe3h50" path="res://assets/sprites/UI/UI_theme.tres" id="2_grgya"]
+[ext_resource type="Theme" uid="uid://cqyidho2ymmaj" path="res://assets/sprites/UI/UI_theme.tres" id="2_grgya"]
 [ext_resource type="Texture2D" uid="uid://f7ohem6r1img" path="res://assets/sprites/enemies/puffer.png" id="2_vjeap"]
 [ext_resource type="Texture2D" uid="uid://c8bk0gynfidnt" path="res://assets/sprites/UI/frame.png" id="2_yc3sk"]
 [ext_resource type="Texture2D" uid="uid://cvqkm3fl6ol7p" path="res://assets/sprites/UI/button_idle1.png" id="3_64oyb"]
