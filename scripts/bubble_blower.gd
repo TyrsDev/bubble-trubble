@@ -110,9 +110,13 @@ func _on_button_up() -> void:
 
 func release_bubble() -> void:
 	if is_blowing:
-		# Use breath_level directly instead of calculating from air_blown
-		blow_bubble(breath_level)
-		set_remaining_soap(remaining_soap - (breath_level * SOAP_COST_MULTIPLIER))
+		# Calculate soap cost for current breath level
+		var soap_cost = breath_level * SOAP_COST_MULTIPLIER
+		# Only blow bubble if we have enough soap
+		if remaining_soap >= soap_cost:
+			# Use breath_level directly instead of calculating from air_blown
+			blow_bubble(breath_level)
+			set_remaining_soap(remaining_soap - soap_cost)
 	
 	# Reset blowing state
 	is_blowing = false
