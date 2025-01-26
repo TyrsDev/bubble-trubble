@@ -10,11 +10,11 @@ const SOAP_CAPACITY_MAX: float = 100.0
 
 var is_blowing: bool = false
 var air_blown: float = 0.0
-var breath_level: int = 1  # New variable to track discrete breath levels
+var breath_level: int = 1 # New variable to track discrete breath levels
 
-const RECOVER_RATE: float = 2.0  # How fast lung capacity recovers per second
-const SOAP_COST_MULTIPLIER: float = 5.0  # How much soap is used per unit of air blown
-const BREATH_INTERVAL: float = 0.5  # Time in seconds per breath level
+const RECOVER_RATE: float = 2.0 # How fast lung capacity recovers per second
+const SOAP_COST_MULTIPLIER: float = 5.0 # How much soap is used per unit of air blown
+const BREATH_INTERVAL: float = 0.5 # Time in seconds per breath level
 
 @onready var level_manager = get_node("/root/Game/%LevelManager")
 var current_spawner: Node2D = null
@@ -63,13 +63,13 @@ func set_remaining_soap(value: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_accept") or button_pressed:
 		if Input.is_action_just_pressed("ui_accept"):
-			if lung_capacity > 0.0:  # Changed from >= 1.0
+			if lung_capacity >= 1.0: # Changed from > 0.0
 				breath_level = 1
 				air_blown = 0.0
 				is_blowing = true
 				set_lung_capacity(lung_capacity - 1.0)
 				set_pressed_no_signal(true)
-		elif is_blowing and lung_capacity > 0.0:  # Changed from >= 1.0
+		elif is_blowing and lung_capacity > 0.0: # This stays > 0.0 to allow continuing to blow
 			air_blown += delta
 			# Calculate new breath level based on time held
 			var new_level = int(floor(air_blown / BREATH_INTERVAL)) + 1
@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 				if new_level >= LUNG_CAPACITY_MAX:
 					# If we reach max level, consume remaining lung capacity and set to max
 					breath_level = int(LUNG_CAPACITY_MAX)
-					set_lung_capacity(0.0)  # Consume all remaining capacity
+					set_lung_capacity(0.0) # Consume all remaining capacity
 				elif new_level < LUNG_CAPACITY_MAX:
 					# Normal level increase
 					set_lung_capacity(lung_capacity - 1.0)
@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		else:
 			set_pressed_no_signal(false)
 	elif is_blowing:
-		release_bubble()  # Only release bubble when stopping naturally
+		release_bubble() # Only release bubble when stopping naturally
 	elif lung_capacity < LUNG_CAPACITY_MAX:
 		# Recover lung capacity when not blowing
 		set_lung_capacity(lung_capacity + (RECOVER_RATE * delta))
@@ -97,14 +97,14 @@ func _process(delta: float) -> void:
 			release_bubble()
 
 func _on_button_down() -> void:
-	if lung_capacity > 0.0:  # Changed from >= 1.0
+	if lung_capacity >= 1.0: # Changed from > 0.0
 		breath_level = 1
 		air_blown = 0.0
 		is_blowing = true
 		set_lung_capacity(lung_capacity - 1.0)
 
 func _on_button_up() -> void:
-	if is_blowing:  # Only release if we were actually blowing
+	if is_blowing: # Only release if we were actually blowing
 		release_bubble()
 	set_pressed_no_signal(false)
 
