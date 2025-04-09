@@ -17,10 +17,14 @@ const SOAP_COST_MULTIPLIER: float = 5.0 # How much soap is used per unit of air 
 const BREATH_INTERVAL: float = 0.5 # Time in seconds per breath level
 
 @onready var level_manager = get_node("/root/Game/%LevelManager")
+@onready var game_manager = get_node("/root/Game/%GameManager")
 var current_spawner: Node2D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Add self to bubble_blower group for easy access
+	add_to_group("bubble_blower")
+	
 	# Initialize progress bars with starting values
 	set_lung_capacity(LUNG_CAPACITY_MAX)
 	set_remaining_soap(SOAP_CAPACITY_MAX)
@@ -123,8 +127,17 @@ func release_bubble() -> void:
 	air_blown = 0.0
 	breath_level = 1
 
+func get_remaining_soap() -> float:
+	return remaining_soap
+
+func reset_soap() -> void:
+	set_remaining_soap(SOAP_CAPACITY_MAX)
+
 func _on_level_changed(level_node: Node) -> void:
 	print("Level changed signal received for level: ", level_node.get_path())
+	
+	# Reset soap to maximum when level changes
+	reset_soap()
 	
 	# Clear old spawner reference first, but don't try to access it
 	current_spawner = null

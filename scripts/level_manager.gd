@@ -45,7 +45,14 @@ func load_current_level() -> void:
 	level_changed.emit(level_instance)
 
 func complete_level(score: int) -> void:
-	game_manager.add_score(score)
+	# Get the bubble blower and add remaining soap as bonus points
+	var bubble_blower = get_tree().get_first_node_in_group("bubble_blower")
+	if bubble_blower and bubble_blower.has_method("get_remaining_soap"):
+		var soap_bonus = int(bubble_blower.get_remaining_soap())
+		print("Adding soap bonus to score: ", soap_bonus)
+		game_manager.add_score(score + soap_bonus)
+	else:
+		game_manager.add_score(score)
 	
 	current_level_index += 1
 	if current_level_index < levels.size():
