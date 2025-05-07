@@ -8,7 +8,6 @@ var is_happy = false
 
 func _ready() -> void:
 	start_crying()
-	$Sheep.body_entered.connect(_on_sheep_body_entered)
 
 func start_crying() -> void:
 	sheep_sprite.play("start_cry")
