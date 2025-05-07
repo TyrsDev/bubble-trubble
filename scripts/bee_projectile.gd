@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var sprite = $Sprite2D
-
 var target: Node2D
 var speed: float
 var damage: int

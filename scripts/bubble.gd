@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var hp: int
 @export var speed: int
 
-@onready var sprite = $Sprite2D
 @onready var animation = $AnimatedSprite2D
 
 var path: Path2D
@@ -35,7 +34,7 @@ func apply_damage(amount: int):
 	if is_dead:
 		return
 	
-	hp -= amount	
+	hp -= amount
 	
 	if hp <= 0:
 		pop()
