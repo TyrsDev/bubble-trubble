@@ -4208,6 +4208,9 @@ position = Vector2(424, 136)
 
 [node name="Bee" parent="Enemies" instance=ExtResource("4_onp0h")]
 position = Vector2(304, 112)
+damage_amount = null
+attack_cooldown = null
+projectile_speed = null
 
 [node name="BubblePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_w8jn7")

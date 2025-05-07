@@ -2729,9 +2729,17 @@ position = Vector2(280, 84)
 
 [node name="Bee" parent="Enemies" instance=ExtResource("5_r1u5c")]
 position = Vector2(184, 120)
+detection_radius = null
+damage_amount = null
+attack_cooldown = null
+projectile_speed = null
 
 [node name="Bee2" parent="Enemies" instance=ExtResource("5_r1u5c")]
 position = Vector2(280, 40)
+detection_radius = null
+damage_amount = null
+attack_cooldown = null
+projectile_speed = null
 
 [node name="BubblePath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_nrm30")

@@ -167,6 +167,10 @@ radius = 32.0
 
 [node name="Bee" type="Node2D"]
 script = ExtResource("1_cp4wf")
+detection_radius = null
+damage_amount = null
+attack_cooldown = null
+projectile_speed = null
 
 [node name="Wings" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -176,9 +180,13 @@ autoplay = "default"
 [node name="Body" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3sv8v")
+animation = &"attack_right"
 autoplay = "default"
 
 [node name="Vision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 shape = SubResource("CircleShape2D_h3hb6")
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="." method="_on_vision_body_exited"]
