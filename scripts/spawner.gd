@@ -14,7 +14,7 @@ var bubble_path: Path2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Spawner ready: ", get_path())  # Print full path on ready
+	print("Spawner ready: ", get_path()) # Print full path on ready
 	# Initialize the dictionary with bubble scenes
 	bubble_scenes = {
 		1: bubble_1,
@@ -54,12 +54,12 @@ func spawn_bubble(size: int) -> void:
 	var bubble = bubble_scene.instantiate()
 	add_child(bubble)
 	bubble.global_position = global_position
-	bubble.set_path(bubble_path)  # Pass the path to the bubble
+	bubble.set_path(bubble_path) # Pass the path to the bubble
 	print("Bubble spawned at position: ", global_position)
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
-		if is_instance_valid(self):
+		if is_inside_tree():
 			print("Spawner being deleted: ", get_path())
 		else:
-			print("Spawner being deleted")
+			print("Spawner being deleted (not in tree)")
