@@ -15,6 +15,7 @@ extends Node2D
 var stinger_offset = Vector2.ZERO
 
 var current_target: Node2D = null
+var last_target: Node2D = null # Store the last target for fadeaway shots
 var can_attack: bool = true
 var attack_timer: float = 0.0
 var is_attacking: bool = false
@@ -68,6 +69,7 @@ func _on_vision_body_entered(body: Node2D) -> void:
 func _on_vision_body_exited(body: Node2D) -> void:
 	if body == current_target:
 		print("Target exited vision: ", body)
+		last_target = current_target # Store the exiting target
 		current_target = null
 		# Try to find a new target immediately when current one leaves
 		find_new_target()
@@ -76,11 +78,20 @@ func _on_vision_body_exited(body: Node2D) -> void:
 func find_new_target() -> bool:
 	print("Looking for new target...")
 	var bodies = vision_area.get_overlapping_bodies()
+	var closest_target = null
+	var closest_distance = INF
+	
 	for body in bodies:
 		if body.is_in_group("bubble"):
-			print("Found new target: ", body)
-			current_target = body
-			return true
+			var distance = global_position.distance_to(body.global_position)
+			if distance < closest_distance:
+				closest_distance = distance
+				closest_target = body
+	
+	if closest_target:
+		print("Found new target: ", closest_target)
+		current_target = closest_target
+		return true
 	return false
 
 func start_attack():
@@ -93,22 +104,34 @@ func start_attack():
 func _on_frame_changed() -> void:
 	# If we're attacking and reach frame 2, try to spawn a projectile
 	if is_attacking and animated_sprite_2d.frame == 2:
-		# Only spawn projectile if target is valid
-		if current_target and is_instance_valid(current_target):
-			print("Spawning projectile at target: ", current_target)
-			spawn_projectile()
+		var target_to_shoot = current_target
+		
+		# If current target isn't valid, try to find a new one
+		if not target_to_shoot or not is_instance_valid(target_to_shoot):
+			if find_new_target():
+				target_to_shoot = current_target
+				print("Found new target mid-attack, spawning projectile at new target")
+			elif last_target and is_instance_valid(last_target):
+				# If no new target found, use the last target for a "fadeaway shot"
+				target_to_shoot = last_target
+				print("No valid targets in range, shooting fadeaway at last target")
+		
+		# Spawn the projectile if we have any target
+		if target_to_shoot and is_instance_valid(target_to_shoot):
+			print("Spawning projectile at target: ", target_to_shoot)
+			spawn_projectile_at(target_to_shoot)
+			last_target = null
 		else:
 			print("No valid target for projectile")
-			# If we somehow lost the target mid-attack, try to find a new one
-			if find_new_target() and is_attacking:
-				print("Found new target mid-attack, spawning projectile")
-				spawn_projectile()
 
 func spawn_projectile() -> void:
+	spawn_projectile_at(current_target)
+
+func spawn_projectile_at(target: Node2D) -> void:
 	var projectile = preload("res://scenes/enemies/bee_projectile.tscn").instantiate()
 	get_tree().root.add_child(projectile)
 	projectile.global_position = stinger_point.global_position
-	projectile.setup(current_target, projectile_speed, damage_amount)
+	projectile.setup(target, projectile_speed, damage_amount)
 
 func _on_body_animation_finished():
 	# Print animation name
