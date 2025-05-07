@@ -183,6 +183,9 @@ sprite_frames = SubResource("SpriteFrames_3sv8v")
 animation = &"attack_right"
 autoplay = "default"
 
+[node name="StingerPoint" type="Node2D" parent="Body"]
+position = Vector2(-19, 14)
+
 [node name="Vision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
